@@ -40,11 +40,15 @@ endif
 # All Target
 all: 327_proj3_test
 
+dependents:
+	-cd /tmp/guest-y4fhg4/git/327_proj3_fileIO/Debug && $(MAKE) all
+	-cd /tmp/guest-y4fhg4/git/327_proj3_stringparser/Debug && $(MAKE) all
+
 # Tool invocations
-327_proj3_test: $(OBJS) $(USER_OBJS)
+327_proj3_test: $(OBJS) $(USER_OBJS) /tmp/guest-y4fhg4/git/327_proj3_fileIO/Debug/lib327_proj3_fileIO.a /tmp/guest-y4fhg4/git/327_proj3_stringparser/Debug/lib327_proj3_stringparser.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L../../327_proj3_fileIO/Debug -o "327_proj3_test" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/tmp/guest-y4fhg4/git/327_proj3_stringparser/Debug" -L"/tmp/guest-y4fhg4/git/327_proj3_fileIO/Debug" -L../../327_proj3_fileIO/Debug -o "327_proj3_test" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -54,5 +58,7 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
+/tmp/guest-y4fhg4/git/327_proj3_fileIO/Debug/lib327_proj3_fileIO.a:
+/tmp/guest-y4fhg4/git/327_proj3_stringparser/Debug/lib327_proj3_stringparser.a:
 
 -include ../makefile.targets

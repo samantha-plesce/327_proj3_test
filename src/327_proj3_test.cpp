@@ -100,4 +100,3 @@ int typicalrun(string &inputfile,string &startTag,string &endTag,string &outputf
 	//dump to standard output
 	//dumpVecToStdOut(myStrings);
 }
-

@@ -194,7 +194,3 @@ void testStringParser(const std::string &startTag,const std::string &endTag){
 int getScore(){
 	return total_points;
 }
-
-
-
-
